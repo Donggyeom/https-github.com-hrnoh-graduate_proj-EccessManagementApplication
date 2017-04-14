@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/personalADList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        >
+    </ListView>
+
+    <Button
+        android:id="@+id/EmpSearchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:text="사원 리스트 보기"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button1_selector"
+        />
+
+</LinearLayout>
