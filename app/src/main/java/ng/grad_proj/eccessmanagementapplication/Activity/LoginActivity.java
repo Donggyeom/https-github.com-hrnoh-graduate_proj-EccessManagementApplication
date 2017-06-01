@@ -1,4 +1,4 @@
-package ng.grad_proj.eccessmanagementapplication;
+package ng.grad_proj.eccessmanagementapplication.Activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -36,6 +36,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ng.grad_proj.eccessmanagementapplication.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

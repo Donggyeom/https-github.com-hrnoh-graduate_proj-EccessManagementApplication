@@ -1,4 +1,4 @@
-package ng.grad_proj.eccessmanagementapplication;
+package ng.grad_proj.eccessmanagementapplication.Activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
+
+import ng.grad_proj.eccessmanagementapplication.R;
 
 /**
  * Created by KimDonggyeom on 2017-04-04.

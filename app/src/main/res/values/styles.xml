@@ -12,7 +12,12 @@
     </style>
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+    </style>
 
+    <!-- 사원 리스트 팝업창 -->
+    <style name="EmpDialog" parent="Theme.AppCompat.Light.Dialog">
+
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

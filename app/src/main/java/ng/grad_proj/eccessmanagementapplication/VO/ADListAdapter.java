@@ -1,4 +1,4 @@
-package ng.grad_proj.eccessmanagementapplication;
+package ng.grad_proj.eccessmanagementapplication.VO;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import ng.grad_proj.eccessmanagementapplication.R;
 
 /**
  * Created by KimDonggyeom on 2017-04-12.

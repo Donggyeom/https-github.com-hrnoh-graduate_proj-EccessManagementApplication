@@ -1,4 +1,4 @@
-package ng.grad_proj.eccessmanagementapplication;
+package ng.grad_proj.eccessmanagementapplication.Activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

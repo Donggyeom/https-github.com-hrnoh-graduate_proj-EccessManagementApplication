@@ -1,4 +1,4 @@
-package ng.grad_proj.eccessmanagementapplication;
+package ng.grad_proj.eccessmanagementapplication.VO;
 
 import android.graphics.drawable.Drawable;
 

@@ -6,7 +6,8 @@ android {
 
     defaultConfig {
         applicationId "ng.grad_proj.eccessmanagementapplication"
-        minSdkVersion 15
+        minSdkVersion 14
+        maxSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -25,4 +26,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.google.code.gson:gson:2.8.1'
 }
