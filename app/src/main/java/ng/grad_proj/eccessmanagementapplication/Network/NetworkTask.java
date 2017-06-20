@@ -19,24 +19,7 @@ public class NetworkTask extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
 
-        // HTTP 요청 준비 작업
-        HttpClient.Builder http = new HttpClient.Builder("POST",
-                "http://192.168.0.39:8080/doorlock/android/connect");
-
-        // 파라미터를 전송한다.
-        http.addOrReplace("test", "한글한글");
-
-        // HTTP 요청 전송
-        HttpClient post = http.create();
-        post.request();
-
-        // 응답 상태코드 가져오기
-        int statusCode = post.getHttpStatusCode();
-
-        // 응답 본문 가져오기
-        String body = post.getBody();
-
-        return body;
+        return null;
     }
 
     /**

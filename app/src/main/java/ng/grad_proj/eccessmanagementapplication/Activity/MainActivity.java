@@ -10,11 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
-
-import ng.grad_proj.eccessmanagementapplication.Network.HttpClient;
-import ng.grad_proj.eccessmanagementapplication.Network.NetworkTask;
 import ng.grad_proj.eccessmanagementapplication.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,18 +23,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
- /*       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+/*        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 */
         // Set up the ViewPager with the sections adapter.
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mViewPager = (ViewPager) findViewById(R.id.container);
+
+        mTabLayout.addTab(mTabLayout.newTab());
         mTabLayout.addTab(mTabLayout.newTab());
         mTabLayout.addTab(mTabLayout.newTab());
         mTabLayout.addTab(mTabLayout.newTab());
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-
-        mViewPager = (ViewPager) findViewById(R.id.container);
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
         mViewPager.setAdapter(pagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -46,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout.getTabAt(0).setText("출입 이력");
         mTabLayout.getTabAt(1).setText("개인 이력 검색");
-        mTabLayout.getTabAt(2).setText("사원 정보 검색");
+        mTabLayout.getTabAt(2).setText("도어락 관리");
+        mTabLayout.getTabAt(3).setText("+");
 
 /*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -57,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 */
-        // 서버 연결
+/*        // 서버 연결
         NetworkTask networkTask = new NetworkTask();
         networkTask.execute("");
-
+*/
     }
 
 

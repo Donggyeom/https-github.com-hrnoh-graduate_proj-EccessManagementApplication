@@ -30,6 +30,9 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 TabFragment3 tabFragment3 = new TabFragment3();
                 return tabFragment3;
+            case 3:
+                TabFragment1 tabFragment4 = new TabFragment1();
+                return tabFragment4;
             default:
                 return null;
         }

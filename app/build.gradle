@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ng.grad_proj.eccessmanagementapplication"
-        minSdkVersion 14
+        minSdkVersion 19
         maxSdkVersion 23
         targetSdkVersion 23
         versionCode 1

@@ -39,7 +39,9 @@
 
         <activity android:name=".Activity.EmpListActivity"
             android:theme="@style/EmpDialog">
-
+        </activity>
+        <activity android:name=".Activity.DoorlockDetailActivity"
+            android:theme="@style/EmpDialog">
         </activity>
     </application>
 

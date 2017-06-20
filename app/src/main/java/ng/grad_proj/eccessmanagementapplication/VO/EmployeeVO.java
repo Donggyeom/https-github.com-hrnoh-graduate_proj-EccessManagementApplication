@@ -64,4 +64,8 @@ public class EmployeeVO {
 		return "EmployeeVO [eno=" + eno + ", name=" + name + ", age=" + age + ", PhoneNum=" + PhoneNum + ", position="
 				+ position + ", status=" + status + ", deptName=" + deptName + ", level=" + level + "]";
 	}
+
+	public String toListData() {
+		return name + ", " + age + ", " + position + ", " + deptName + ", " + PhoneNum;
+	}
 }

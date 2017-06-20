@@ -2,14 +2,11 @@ package ng.grad_proj.eccessmanagementapplication.VO;
 
 public class DoorlockVO {
 //	WebSocketSession session;
-	private int dno;
+private int dno;
 	private String location;
 	private String mac;
 	private int level;
-	private int isOnline;
-	
-	public DoorlockVO() { isOnline = 0; }
-	
+
 	public int getDno() {
 		return dno;
 	}
@@ -34,15 +31,14 @@ public class DoorlockVO {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public int getIsOnline() {
-		return isOnline;
+
+	public String toListData() {
+		return dno + ". " + location + ", " + level;
 	}
-	public void setIsOnline(int isOnline) {
-		this.isOnline = isOnline;
-	}
+
 	@Override
 	public String toString() {
-		return "DoorlockVO [session=" + ", dno=" + dno + ", location=" + location + ", mac=" + mac
-				+ ", level=" + level + ", isOnline=" + isOnline + "]";
+		return "DoorlockVO [" + "dno=" + dno + ", location=" + location + ", mac=" + mac
+				+ ", level=" + level + "]";
 	}
 }

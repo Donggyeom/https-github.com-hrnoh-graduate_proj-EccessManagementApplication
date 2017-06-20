@@ -2,39 +2,34 @@ package ng.grad_proj.eccessmanagementapplication.Network;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
+import ng.grad_proj.eccessmanagementapplication.VO.DoorlockVO;
 import ng.grad_proj.eccessmanagementapplication.VO.EmployeeVO;
 
 /**
- * Created by KimDonggyeom on 2017-05-22.
+ * Created by KimDonggyeom on 2017-06-02.
  */
-public class PullEmpList extends AsyncTask<String, String, String> {
+public class PullDoorlockList extends AsyncTask<String, String, String> {
 
-    private List<EmployeeVO> empList;
+    private List<DoorlockVO> doorlockList;
 
-    public PullEmpList() {
-        empList = new ArrayList<>();
+    public PullDoorlockList() {
+        doorlockList = new ArrayList<>();
     }
 
-    public List<EmployeeVO> getEmpList(){
-        return empList;
+    public List<DoorlockVO> getDoorlockList() {
+        return doorlockList;
     }
 
     /**
@@ -52,11 +47,10 @@ public class PullEmpList extends AsyncTask<String, String, String> {
      */
     @Override
     protected String doInBackground(String... params) {
-
         String res = null;
 
         try {
-            HttpConnect httpConnect = new HttpConnect(new URL("http://192.168.0.39:8080/app/eList"), "GET");
+            HttpConnect httpConnect = new HttpConnect(new URL("http://192.168.0.39:8080/app/dList"), "GET");
 
             if (httpConnect.open())
                 res = httpConnect.connect();
@@ -71,8 +65,8 @@ public class PullEmpList extends AsyncTask<String, String, String> {
             JSONArray list = new JSONArray(res);
             Gson gson = new GsonBuilder().create();
             for (int i = 0; i < list.length(); i++) {
-                empList.add(gson.fromJson(list.get(i).toString(), EmployeeVO.class));
-                Log.d("emp", empList.get(i).toString());
+                doorlockList.add(gson.fromJson(list.get(i).toString(), DoorlockVO.class));
+                Log.d("emp", doorlockList.get(i).toString());
             }
         } catch (JSONException e) {
             //e.printStackTrace();
