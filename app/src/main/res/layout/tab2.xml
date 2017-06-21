@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ListView
-        android:id="@+id/personalADList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+<!--
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
-        >
+        android:text="사원 리스트"
+        android:textSize="14pt"
+        android:textColor="#000000"
+        />
+-->
+    <ListView
+        android:id="@+id/EmpListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="5dp">
+
     </ListView>
 
-    <Button
-        android:id="@+id/EmpListBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:text="사원 리스트 보기"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:background="@drawable/button1_selector"
-        />
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/empAddBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="사원 등록" />
+<!--
+        <Button
+            android:id="@+id/EmpCloseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:text="닫기"/>
+-->
+    </LinearLayout>
 
 </LinearLayout>

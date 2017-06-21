@@ -53,7 +53,7 @@ public class PullDoorlockList extends AsyncTask<String, String, String> {
             HttpConnect httpConnect = new HttpConnect(new URL("http://192.168.0.39:8080/app/dList"), "GET");
 
             if (httpConnect.open())
-                res = httpConnect.connect();
+                res = httpConnect.connect(null);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class PullDoorlockList extends AsyncTask<String, String, String> {
             Gson gson = new GsonBuilder().create();
             for (int i = 0; i < list.length(); i++) {
                 doorlockList.add(gson.fromJson(list.get(i).toString(), DoorlockVO.class));
-                Log.d("emp", doorlockList.get(i).toString());
+                Log.d("doorlock", doorlockList.get(i).toString());
             }
         } catch (JSONException e) {
             //e.printStackTrace();

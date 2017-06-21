@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 import ng.grad_proj.eccessmanagementapplication.VO.ADListAdapter;
 import ng.grad_proj.eccessmanagementapplication.VO.AccessData;
 import ng.grad_proj.eccessmanagementapplication.R;
+import ng.grad_proj.eccessmanagementapplication.VO.MessageDTO;
 
 /**
  * Created by KimDonggyeom on 2017-04-04.
@@ -22,22 +25,16 @@ import ng.grad_proj.eccessmanagementapplication.R;
 public class TabFragment1 extends Fragment {
 
     public ArrayList<AccessData> accessDatas;
+    public static TextView logView;
+    public static ListView linkedDoorlock;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tab1, container, false);
-        ListView acDataListView = (ListView)view.findViewById(R.id.accessDataList);
-        ADListAdapter adapter = new ADListAdapter(container.getContext());
-        accessDatas = new ArrayList<AccessData>();
 
-        // 디비에서 데이타 가져오기
-        AccessData dummy00 = new AccessData();
-        dummy00.setName("dummy00");
-        dummy00.setAccessData("2017/04/12 19:03 회의실");
-        accessDatas.add(dummy00);
-        adapter.addItem(accessDatas);
-        acDataListView.setAdapter(adapter);
+        logView = (TextView)view.findViewById(R.id.LogView);
+        linkedDoorlock = (ListView)view.findViewById(R.id.LinkedDoorlockList);
 
         return view;
     }

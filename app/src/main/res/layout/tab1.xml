@@ -3,10 +3,56 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <ListView
-       android:id="@+id/accessDataList"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
-   </ListView>
 
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="로그"
+       android:textSize="12pt"
+       android:layout_margin="5dp"
+       android:textColor="#000000" />
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/tableLayout"
+       android:layout_marginTop="1dp"
+       android:layout_marginBottom="1dp" />
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:id="@+id/scrollView"
+       android:layout_margin="5dp"
+       android:layout_weight="1.00">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/LogView"
+          android:textSize="10pt"
+          android:hint="로그창입니다." />
+   </ScrollView>
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="도어락목록"
+       android:textSize="12pt"
+       android:layout_margin="5dp"
+       android:textColor="#000000"
+       android:id="@+id/textView12" />
+
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:background="@color/tableLayout"
+       android:layout_marginTop="1dp"
+      android:layout_marginBottom="1dp" />
+
+   <ListView
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:id="@+id/LinkedDoorlockList"
+       android:layout_weight="1"
+       android:layout_margin="5dp" />
 </LinearLayout>

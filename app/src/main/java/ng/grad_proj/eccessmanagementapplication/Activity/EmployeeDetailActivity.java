@@ -17,37 +17,47 @@ import com.google.gson.Gson;
 import java.util.concurrent.ExecutionException;
 
 import ng.grad_proj.eccessmanagementapplication.Network.DeleteDoorlock;
+import ng.grad_proj.eccessmanagementapplication.Network.DeleteEmployee;
 import ng.grad_proj.eccessmanagementapplication.Network.PullDoorlockLog;
+import ng.grad_proj.eccessmanagementapplication.Network.PullEmployeeLog;
 import ng.grad_proj.eccessmanagementapplication.R;
 import ng.grad_proj.eccessmanagementapplication.VO.DoorlockVO;
+import ng.grad_proj.eccessmanagementapplication.VO.EmployeeVO;
 import ng.grad_proj.eccessmanagementapplication.VO.LogVO;
 
-public class DoorlockDetailActivity extends AppCompatActivity{
+/**
+ * Created by KimDonggyeom on 2017-06-15.
+ */
+public class EmployeeDetailActivity extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.doorlock_detail_view);
+        setContentView(R.layout.employee_detail_view);
 
         // 도어락 아이템 가져오기
-        SharedPreferences dList = getSharedPreferences("dList", MODE_PRIVATE);
-        Integer clicked = dList.getInt("doorlockClicked", -1);
-        String item = dList.getString("doorlockItem" + clicked.toString(), "");
-        final DoorlockVO doorlockItem = new Gson().fromJson(item, DoorlockVO.class);
+        SharedPreferences eList = getSharedPreferences("eList", MODE_PRIVATE);
+        Integer clicked = eList.getInt("empClicked", -1);
+        String item = eList.getString("empItem" + clicked.toString(), "");
+        final EmployeeVO empItem = new Gson().fromJson(item, EmployeeVO.class);
 
-        TextView tbl_lev = (TextView)findViewById(R.id.doorlock_tbl_level);
-        TextView tbl_loca = (TextView)findViewById(R.id.doorlock_tbl_location);
-        TextView tbl_mac = (TextView)findViewById(R.id.doorlock_tbl_mac);
+        TextView tbl_name = (TextView)findViewById(R.id.emp_tbl_name);
+        TextView tbl_deptname = (TextView)findViewById(R.id.emp_tbl_deptname);
+        TextView tbl_position = (TextView)findViewById(R.id.emp_tbl_position);
+        TextView tbl_phoneNum = (TextView)findViewById(R.id.emp_tbl_phoneNum);
+        TextView tbl_level = (TextView)findViewById(R.id.emp_tbl_level);
 
-        tbl_lev.setText(Integer.toString(doorlockItem.getLevel()));
-        tbl_loca.setText(doorlockItem.getLocation());
-        tbl_mac.setText(doorlockItem.getMac());
+        tbl_name.setText(empItem.getName());
+        tbl_deptname.setText(empItem.getDeptName());
+        tbl_position.setText(empItem.getPosition());
+        tbl_phoneNum.setText(empItem.getPhoneNum());
+        tbl_level.setText(Integer.toString(empItem.getLevel()));
 
         // 로그 테이블
-        TableLayout dLogTbl = (TableLayout)findViewById(R.id.dLogTbl);
+        TableLayout eLogTbl = (TableLayout)findViewById(R.id.eLogTbl);
         // 로그 가져오기
-        PullDoorlockLog log = new PullDoorlockLog();
-        log.execute(doorlockItem.getMac());
+        PullEmployeeLog log = new PullEmployeeLog();
+        log.execute(Integer.toString(empItem.getEno()));
         try {
             String logJson = log.get();
         } catch (InterruptedException e) {
@@ -56,29 +66,23 @@ public class DoorlockDetailActivity extends AppCompatActivity{
             e.printStackTrace();
         }
         // 테이블 데이터 추가
-        for (LogVO vo : log.getDoorlockLog()) {
+        for (LogVO vo : log.getEmpLog()) {
             TableRow row = new TableRow(this);
             row.setGravity(Gravity.CENTER_HORIZONTAL);
 
-            TextView name = new TextView(this);
-            TextView dept = new TextView(this);
-            TextView position = new TextView(this);
+            TextView location = new TextView(this);
             TextView date = new TextView(this);
             TextView res = new TextView(this);
 
-            name.setText(vo.getName());
-            dept.setText(vo.getDeptName());
-            position.setText(vo.getPosition());
+            location.setText(vo.getLocation());
             date.setText(vo.getTime().toString());
             res.setText(vo.getResult());
 
-            row.addView(name);
-            row.addView(dept);
-            row.addView(position);
+            row.addView(location);
             row.addView(date);
             row.addView(res);
 
-            dLogTbl.addView(row);
+            eLogTbl.addView(row);
         }
 
         // 버튼 클릭 리스너
@@ -87,11 +91,11 @@ public class DoorlockDetailActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                DeleteDoorlock dDel = new DeleteDoorlock();
-                dDel.execute(doorlockItem.getMac());
+                DeleteEmployee eDel = new DeleteEmployee();
+                eDel.execute(Integer.toString(empItem.getEno()));
 
                 try {
-                    String res = dDel.get();
+                    String res = eDel.get();
 
                     if (!res.contains("success")) {
                         Toast.makeText(v.getContext(), "DeleteFailed", Toast.LENGTH_SHORT).show();

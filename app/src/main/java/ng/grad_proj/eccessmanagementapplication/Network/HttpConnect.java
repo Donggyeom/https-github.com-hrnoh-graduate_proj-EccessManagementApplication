@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -42,8 +43,10 @@ public class HttpConnect {
             connection.setConnectTimeout(5000);
             connection.setRequestMethod(method);
             connection.setDoInput(true);
-//            connection.setDoOutput(true);
-            //connection.setRequestProperty("Content-Type","application/json");
+            if (getMethod().equals("POST")) {
+                connection.setDoOutput(true);
+                connection.setRequestProperty("Content-Type","application/json");
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,22 +56,20 @@ public class HttpConnect {
         return true;
     }
 
-    public String connect() {
-/*        byte[] outputInBytes = params[0].getBytes("UTF-8");
-        OutputStream os = conn.getOutputStream();
-        os.write( outputInBytes );
-        os.close();*/
-
-       /* OutputStream os = null;
-        try {
-            os = connection.getOutputStream();
-            os.write("".getBytes("UTF-8"));
-            os.flush();
-            os.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public String connect(String param) {
+        if (param != null) {
+            byte[] outputInBytes;
+            try {
+                outputInBytes = param.getBytes("UTF-8");
+                OutputStream os = connection.getOutputStream();
+                os.write(outputInBytes);
+                os.close();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-*/
 
         String res;
         try {
@@ -86,7 +87,7 @@ public class HttpConnect {
             res = response.toString();
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return "";
         }
         return res;
     }

@@ -33,7 +33,7 @@ private int dno;
 	}
 
 	public String toListData() {
-		return dno + ". " + location + ", " + level;
+		return dno + ". " + location + ", " + mac;
 	}
 
 	@Override

@@ -6,9 +6,31 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/doorlockListView" >
+        android:layout_height="wrap_content"
+        android:id="@+id/doorlockListView"
+        android:layout_weight="1"
+        android:layout_margin="5dp">
 
     </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/doorlockAddBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="도어락 등록" />
+        <!--
+                <Button
+                    android:id="@+id/EmpCloseBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="닫기"/>
+        -->
+    </LinearLayout>
 
 </LinearLayout>

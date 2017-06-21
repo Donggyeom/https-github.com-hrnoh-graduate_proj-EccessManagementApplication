@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import ng.grad_proj.eccessmanagementapplication.VO.MessageDTO;
+
 /**
  * Created by KimDonggyeom on 2017-04-04.
  */
@@ -31,7 +33,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
                 TabFragment3 tabFragment3 = new TabFragment3();
                 return tabFragment3;
             case 3:
-                TabFragment1 tabFragment4 = new TabFragment1();
+                TabFragment4 tabFragment4 = new TabFragment4();
                 return tabFragment4;
             default:
                 return null;

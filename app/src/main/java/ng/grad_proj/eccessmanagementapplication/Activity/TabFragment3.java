@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -73,6 +74,15 @@ public class TabFragment3 extends Fragment {
                 editor.putInt("doorlockClicked", position);
                 editor.commit();
                 startActivity(new Intent(view.getContext(), DoorlockDetailActivity.class));
+            }
+        });
+
+        // 도어락 등록 버튼 리스너
+        Button addBtn = (Button) view.findViewById(R.id.doorlockAddBtn);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), AddDoorlockActivity.class));
             }
         });
 

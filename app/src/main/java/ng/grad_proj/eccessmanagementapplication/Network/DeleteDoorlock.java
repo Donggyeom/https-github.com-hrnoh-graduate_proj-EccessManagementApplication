@@ -2,40 +2,24 @@ package ng.grad_proj.eccessmanagementapplication.Network;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-import ng.grad_proj.eccessmanagementapplication.VO.EmployeeVO;
+import ng.grad_proj.eccessmanagementapplication.VO.DoorlockVO;
 
 /**
- * Created by KimDonggyeom on 2017-05-22.
+ * Created by KimDonggyeom on 2017-06-02.
  */
-public class PullEmpList extends AsyncTask<String, String, String> {
-
-    private List<EmployeeVO> empList;
-
-    public PullEmpList() {
-        empList = new ArrayList<>();
-    }
-
-    public List<EmployeeVO> getEmpList(){
-        return empList;
-    }
+public class DeleteDoorlock extends AsyncTask<String, String, String> {
 
     /**
      * doInBackground 실행되기 이전에 동작한다.
@@ -52,11 +36,10 @@ public class PullEmpList extends AsyncTask<String, String, String> {
      */
     @Override
     protected String doInBackground(String... params) {
-
         String res = null;
 
         try {
-            HttpConnect httpConnect = new HttpConnect(new URL("http://192.168.0.39:8080/app/eList"), "GET");
+            HttpConnect httpConnect = new HttpConnect(new URL("http://192.168.0.39:8080/app/dDel/" + params[0]), "DELETE");
 
             if (httpConnect.open())
                 res = httpConnect.connect(null);
@@ -65,18 +48,6 @@ public class PullEmpList extends AsyncTask<String, String, String> {
             e.printStackTrace();
         }
 
-        try {
-            if (res == null) return "";
-
-            JSONArray list = new JSONArray(res);
-            Gson gson = new GsonBuilder().create();
-            for (int i = 0; i < list.length(); i++) {
-                empList.add(gson.fromJson(list.get(i).toString(), EmployeeVO.class));
-                Log.d("emp", empList.get(i).toString());
-            }
-        } catch (JSONException e) {
-            //e.printStackTrace();
-        }
         return res;
     }
 

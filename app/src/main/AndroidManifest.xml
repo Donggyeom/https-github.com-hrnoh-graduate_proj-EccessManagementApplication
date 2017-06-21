@@ -37,10 +37,17 @@
             android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main" />
 
-        <activity android:name=".Activity.EmpListActivity"
+        <activity android:name=".Activity.DoorlockDetailActivity"
             android:theme="@style/EmpDialog">
         </activity>
-        <activity android:name=".Activity.DoorlockDetailActivity"
+
+        <activity android:name=".Activity.EmployeeDetailActivity"
+            android:theme="@style/EmpDialog">
+        </activity>
+        <activity android:name=".Activity.AddDoorlockActivity"
+            android:theme="@style/EmpDialog">
+        </activity>
+        <activity android:name=".Activity.AddEmployeeActivity"
             android:theme="@style/EmpDialog">
         </activity>
     </application>
